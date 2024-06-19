@@ -1,0 +1,50 @@
+<div class="box">
+  <mat-card>
+    @if (isLoading) {<mat-spinner></mat-spinner>} @else {
+    <form
+      (ngSubmit)="onLogin(loginForm)"
+      #loginForm="ngForm"
+      style="display: flex; flex-direction: column"
+    >
+      <mat-form-field appearance="outline">
+        <mat-label>E-Mail</mat-label>
+        <input
+          matInput
+          [ngModel]="email"
+          type="email"
+          name="email"
+          #emailInput="ngModel"
+          email
+          required
+        />
+        @if (emailInput.invalid) {
+        <mat-error>Please enter a email.</mat-error> }
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Password</mat-label>
+        <input
+          matInput
+          [ngModel]="password"
+          type="password"
+          name="password"
+          #passwordInput="ngModel"
+          required
+        />
+        @if (passwordInput.invalid) {
+        <mat-error>Please enter a password</mat-error> }
+      </mat-form-field>
+      <button
+        mat-raised-button
+        type="submit"
+        color="accent"
+        style="align-self: self-start"
+        *ngIf="!isLoading"
+      >
+        Login
+      </button>
+      <mat-spinner *ngIf="isLoading"></mat-spinner>
+    </form>
+    }
+  </mat-card>
+</div>

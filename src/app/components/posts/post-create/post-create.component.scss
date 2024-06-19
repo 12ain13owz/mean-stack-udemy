@@ -1,0 +1,18 @@
+mat-spinner {
+  margin: auto;
+}
+
+input[type="file"] {
+  visibility: hidden;
+}
+
+.image-preview {
+  max-height: 5rem;
+  margin: 1rem 0;
+  box-sizing: border-box;
+
+  img {
+    margin: 0;
+    height: 100%;
+  }
+}
